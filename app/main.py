@@ -34,3 +34,8 @@ def pay():
 def auto_post(topic: str):
     result = run_agent(f"Create a viral Facebook post about: {topic}")
     return result
+from capability import get_capabilities
+
+@app.get("/capabilities")
+def capabilities():
+    return get_capabilities()
