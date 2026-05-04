@@ -39,3 +39,18 @@ from capability import get_capabilities
 @app.get("/capabilities")
 def capabilities():
     return get_capabilities()
+import time
+from monitor import monitor_loop
+from updater import update_system
+
+def run():
+    while True:
+        monitor_loop()
+
+        # update ทุก 1 ชม.
+        update_system()
+
+        time.sleep(3600)
+
+if __name__ == "__main__":
+    run()
