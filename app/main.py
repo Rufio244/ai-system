@@ -30,3 +30,7 @@ def best():
 @app.get("/pay")
 def pay():
     return {"client_secret": create_payment()}
+@app.get("/auto-post")
+def auto_post(topic: str):
+    result = run_agent(f"Create a viral Facebook post about: {topic}")
+    return result
