@@ -1,10 +1,9 @@
 import subprocess
 
-def update_system():
-    print("Updating system...")
+def rollback():
+    print("Rolling back...")
 
-    subprocess.run(["git", "pull"])
-    subprocess.run(["docker-compose", "build"])
+    subprocess.run(["git", "checkout", "HEAD~1"])
     subprocess.run(["docker-compose", "up", "-d"])
 
-    print("Update complete")
+    print("Rollback complete")
